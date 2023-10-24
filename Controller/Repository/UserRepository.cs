@@ -12,32 +12,38 @@ public class UserRepository : IUserRepository
     public UserRepository(string connectionString)
     {
         _connectionString = connectionString;
+        using (var db = new LiteDatabase(_connectionString))
+        {
+            var collection = db.GetCollection<User>("users");
+            collection.EnsureIndex(x => x.Login, unique: true);
+        }
     }
     
-    public void AddUser(User user)
+    public User AddUser(User user)
     {
         using (var db = new LiteDatabase(_connectionString))
         {
             var collection = db.GetCollection<User>("users");
             collection.Insert(user);
+            return collection.FindOne(x => x.Login == user.Login);
         }
     }
 
-    public void RemoveUser(ObjectId userId)
+    public void RemoveUser(string login)
     {
         using (var db = new LiteDatabase(_connectionString))
         {
             var collection = db.GetCollection<User>("users");
-            collection.Delete(userId);
+            collection.DeleteMany(x => x.Login == login);
         }
     }
 
-    public User FindUserById(ObjectId userId)
+    public User FindUserByLogin(string login)
     {
         using (var db = new LiteDatabase(_connectionString))
         {
             var collection = db.GetCollection<User>("users");
-            return collection.FindById(userId);
+            return collection.FindOne(x => x.Login == login);
         }
     }
 
