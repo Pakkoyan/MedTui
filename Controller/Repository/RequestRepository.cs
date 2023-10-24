@@ -40,6 +40,18 @@ public class RequestRepository : IAttachmentRequestRepository
             return collection.FindById(requestId);
         }
     }
+    
+    public void FindRequestAndReWrite(ObjectId requestId, AttachmentRequest.AttachmentStatus newStatus)
+    {
+        using (var db = new LiteDatabase(_connectionString))
+        {
+            var collection = db.GetCollection<AttachmentRequest>("requests");
+            var request = collection.FindById(requestId);
+            collection.Delete(requestId);
+            request.Status = newStatus;
+            collection.Insert(request);
+        }
+    }
 
     public ImmutableList<AttachmentRequest> GetAllRequest()
     {

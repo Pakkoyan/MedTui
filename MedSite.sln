@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Attachment", "Attachment\At
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controller", "Controller\Controller.csproj", "{CC9F8F51-72E0-4F45-8D84-487B01F38337}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEnd", "FrontEnd\FrontEnd.csproj", "{C4A29F25-96D8-46C5-BC70-08CB4295E80E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{CC9F8F51-72E0-4F45-8D84-487B01F38337}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC9F8F51-72E0-4F45-8D84-487B01F38337}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC9F8F51-72E0-4F45-8D84-487B01F38337}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4A29F25-96D8-46C5-BC70-08CB4295E80E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4A29F25-96D8-46C5-BC70-08CB4295E80E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4A29F25-96D8-46C5-BC70-08CB4295E80E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4A29F25-96D8-46C5-BC70-08CB4295E80E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

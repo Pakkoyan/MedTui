@@ -25,4 +25,9 @@ public class AttachmentRequest
         Status = status;
         Organisation = organisation;
     }
+
+    public AttachmentRequest()
+    {
+          
+    }
 }
